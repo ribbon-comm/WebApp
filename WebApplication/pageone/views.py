@@ -5,7 +5,6 @@ def login(request):
     if request.method=='POST':
         username = request.POST['username']
         password = request.POST['password']
-        #print(username,password)
         return redirect('/home')
     else:
         return render(request,"login.html")

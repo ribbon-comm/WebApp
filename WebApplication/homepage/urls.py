@@ -19,5 +19,7 @@ from . import views
 
 urlpatterns = [
     path('', views.home,name='home'),
+    path('imsli/', views.imsli,name='imsli'),
+    path('imsli/imsli_liserver/', views.imsli_liserver,name='imsli_liserver'),
     path('test/', views.test,name='test'),
 ]
