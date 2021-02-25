@@ -113,6 +113,7 @@
               <li><i class="icon_document_alt"></i>LI</li>
               <li><i class="fa fa-file-text-o"></i>IMS-LI(Target Provisioning)</li>
               <li><i class="fa fa-file-text-o"></i>IMS-LI(LiServer)</li>
+              <li><i class="fa fa-file-text-o"></i>IMS-LI (SBC Configurations)</li>
             </ol>
           </div>
         </div>
@@ -120,7 +121,7 @@
           <div class="col-lg-12">
             <section class="panel">
               <header class="panel-heading">
-                Starting liServer
+                Configure SBC
               </header>
               <div class="panel-body">
 
@@ -128,109 +129,48 @@
                     {% csrf_token %}
 
                   <div class="form-group">
-                    <label class="control-label col-sm-4">Select Bats server</label>
+                    <label class="control-label col-sm-4">Select IpInterfaceGroupName</label>
                     <div class="col-sm-6">
-                      <select class="form-control m-bot15" name="batsserver">
-                                              <option>bats12</option>
-                                              <option>bats14</option>
-                                              <option>bats15</option>
-                                              <option>bats16</option>
-                                              <option>bats18</option>
-                                              <option>bats20</option>
+                      <select class="form-control m-bot15" name="IpInterfaceGroupName">
+                                              <option>{{ipInterfaceGroup1}}</option>
+                                              <option>{{ipInterfaceGroup2}}</option>
                       </select>
                     </div>
-                    </div>
-
-                  <div class="form-group">
-                    <label class="col-sm-4 control-label">Enter number of Mediation Servers needed</label>
-                    <div class="col-sm-6">
-                      <input type="number" placeholder="Maximum 16" class="form-control" name="msnum" min="1" step="1" max="16" data-bind="value:replyNumber" />
-                    </div>
                   </div>
 
                   <div class="form-group">
-                    <label class="col-sm-4 control-label">Enter bats username</label>
+                    <label class="control-label col-sm-4">Select Intercept Standard</label>
                     <div class="col-sm-6">
-                      <input type="text" class="form-control" name="batsusername">
+                      <select class="form-control m-bot15" name="InterceptStandard">
+                                              <option>threeGpp</option>
+                                              <option>etsi</option>
+                      </select>
                     </div>
                   </div>
+
 
                   <div class="form-group">
-                    <label class="col-sm-4 control-label">Enter bats password</label>
+                    <label class="control-label col-sm-4">Select vendorID</label>
                     <div class="col-sm-6">
-                      <input type="password" class="form-control" name="batspassword">
+                      <select class="form-control m-bot15" name="vendorID">
+                                              <option>verint</option>
+                                              <option>utimaco</option>
+                                              <option>groupTwoThousand</option>
+                                              <option>none</option>
+                      </select>
                     </div>
                   </div>
 
-                  <input class="btn btn-primary" type="submit" name="" value="Run liServers" href="#">
+                  <input class="btn btn-primary" type="submit" name="" value="Configure SBC" href="#">
 
                 </form>
               </div>
             </section>
 
             {% if messages == 'Successful' %}
-                    <div class="slot" id="slot1">
-                        <script type='text/javascript'>
-                                $(document).ready(function(){
-                                   $("#exampleModal").modal();
-                                });
-
-                        </script>
-                    </div>
-
-                    {% elif messages == 'Not Successful' %}
-                    <div class="slot" id="slot2">
-                        <script type='text/javascript'>
-                                $(document).ready(function(){
-                                   $("#exampleModal2").modal();
-                                });
-
-                        </script>
-                    </div>
-                    {% endif %}
-
-
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                         aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Target Provision</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    LI Server is running. Click on Next to proceed for SBC configuraions.
-                                </div>
-                                <div class="modal-footer">
-                                    <a class="btn btn-primary" href="{% url 'imsli_configs' %}">Next</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog"
-                         aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel2">Modal title</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    LI Server not running. Please check the connection to bats selected and try again.
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary" href="{% url 'imsli_liserver' %}">Try Again</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <p>SBC Configs are successful. Check for stats after running the call</p>
+            <a class="btn btn-primary" data-toggle="exampleModal" data-target="#exampleModal" href="{% url 'imsli_configs_stats' %}">Stats</a>
+            {% endif %}
 
           </div>
         </div>

@@ -38,7 +38,12 @@
       <script src="{% static 'js/lte-ie7.js' %}"></script>
     <![endif]-->
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- =======================================================
+      Theme Name: NiceAdmin
+      Theme URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+      Author: BootstrapMade
+      Author URL: https://bootstrapmade.com
+    ======================================================= -->
 </head>
 
 <body>
@@ -70,6 +75,12 @@
               <li>
                 <a href="{% url 'login' %}"><i class="icon_key_alt"></i> Log Out</a>
               </li>
+              <li>
+                <a href="documentation.html"><i class="icon_key_alt"></i> Documentation</a>
+              </li>
+              <li>
+                <a href="documentation.html"><i class="icon_key_alt"></i> Documentation</a>
+              </li>
             </ul>
           </li>
           <!-- user login dropdown end -->
@@ -96,6 +107,18 @@
               <li><a class="" href="{% url 'vzli' %}">PCSI-LI</a></li>
             </ul>
           </li>
+          <li class="sub-menu">
+            <a href="javascript:;" class="">
+                          <i class="icon_desktop"></i>
+                          <span>UI Fitures</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+            <ul class="sub">
+              <li><a class="" href="{% static 'general.html' %}">Components</a></li>
+              <li><a class="" href="{% static 'buttons.html' %}">Buttons</a></li>
+              <li><a class="" href="{% static 'grids.html' %}">Grids</a></li>
+            </ul>
+          </li>
         </ul>
         <!-- sidebar menu end-->
       </div>
@@ -111,8 +134,8 @@
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="{% url 'home' %}">Home</a></li>
               <li><i class="icon_document_alt"></i>LI</li>
-              <li><i class="fa fa-file-text-o"></i>IMS-LI(Target Provisioning)</li>
-              <li><i class="fa fa-file-text-o"></i>IMS-LI(LiServer)</li>
+              <li><i class="fa fa-file-text-o"></i>PCSI-LI(Target Provisioning)</li>
+              <li><i class="fa fa-file-text-o"></i>PCSI-LI(LiServer)</li>
             </ol>
           </div>
         </div>
@@ -169,68 +192,9 @@
             </section>
 
             {% if messages == 'Successful' %}
-                    <div class="slot" id="slot1">
-                        <script type='text/javascript'>
-                                $(document).ready(function(){
-                                   $("#exampleModal").modal();
-                                });
-
-                        </script>
-                    </div>
-
-                    {% elif messages == 'Not Successful' %}
-                    <div class="slot" id="slot2">
-                        <script type='text/javascript'>
-                                $(document).ready(function(){
-                                   $("#exampleModal2").modal();
-                                });
-
-                        </script>
-                    </div>
-                    {% endif %}
-
-
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                         aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Target Provision</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    LI Server is running. Click on Next to proceed for SBC configuraions.
-                                </div>
-                                <div class="modal-footer">
-                                    <a class="btn btn-primary" href="{% url 'imsli_configs' %}">Next</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog"
-                         aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel2">Modal title</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    LI Server not running. Please check the connection to bats selected and try again.
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary" href="{% url 'imsli_liserver' %}">Try Again</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+              <p>LI Server is running successful. Click on Next to proceed further</p>
+              <a class="btn btn-primary" href="{% url 'vzli_configs' %}">Next</a>
+            {% endif %}
 
           </div>
         </div>
