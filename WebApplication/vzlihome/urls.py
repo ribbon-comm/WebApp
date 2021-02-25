@@ -19,11 +19,7 @@ from . import views
 from django.urls import path, include
 
 urlpatterns = [
-    path('', views.home,name='home'),
-    path('imsli/', views.imsli,name='imsli'),
-    path('imsli/imsli_liserver/', views.imsli_liserver,name='imsli_liserver'),
-    path('imsli/configs/', views.imsli_configs,name='imsli_configs'),
-    path('imsli/configs/stats', views.imsli_configs_stats,name='imsli_configs_stats'),
-
-    path('',include('vzlihome.urls')),
+    path('vzli/', views.vzli,name='vzli'),
+    path('vzli/vzli_liserver/', views.vzli_liserver,name='vzli_liserver'),
+    path('vzli/vzli_configs/', views.vzli_configs,name='vzli_configs'),
 ]

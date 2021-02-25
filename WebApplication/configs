@@ -1,0 +1,28 @@
+configure
+set addressContext default intercept callDataChannel CDC interceptStandard threeGpp vendorId groupTwoThousand ipInterfaceGroupName LIF1 mediaIpInterfaceGroupName LIF1
+commit
+set addressContext default intercept callDataChannel CDC mediationServer MS0 signaling ipAddress 10.54.81.89 portNumber 1212 state disabled mode outOfService
+commit
+set addressContext default intercept callDataChannel CDC mediationServer MS0 signaling state enabled mode inService
+commit
+set addressContext default intercept callDataChannel CDC mediationServer MS1 signaling ipAddress 10.54.81.89 portNumber 1244 state disabled mode outOfService
+commit
+set addressContext default intercept callDataChannel CDC mediationServer MS1 signaling state enabled mode inService
+commit
+set addressContext default intercept callDataChannel CDC mediationServer MS2 signaling ipAddress 10.54.81.89 portNumber 1212 state disabled mode outOfService
+commit
+set addressContext default intercept callDataChannel CDC mediationServer MS2 signaling state enabled mode inService
+commit
+set addressContext default intercept callDataChannel CDC mediationServer MS0 media udp ipAddress 10.54.81.89 portNumber 4564 state disabled mode outOfService
+commit
+set addressContext default intercept callDataChannel CDC mediationServer MS0 media udp state enabled mode inService
+commit
+set addressContext default intercept callDataChannel CDC mediationServer MS1 media udp ipAddress 10.54.81.89 portNumber 1244 state disabled mode outOfService
+commit
+set addressContext default intercept callDataChannel CDC mediationServer MS1 media udp state enabled mode inService
+commit
+set addressContext default intercept callDataChannel CDC mediationServer MS2 media udp ipAddress 10.54.81.89 portNumber 4564 state disabled mode outOfService
+commit
+set addressContext default intercept callDataChannel CDC mediationServer MS2 media udp state enabled mode inService
+commit
+exit
